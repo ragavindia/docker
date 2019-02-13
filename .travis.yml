@@ -1,0 +1,9 @@
+sudo: required
+services: 
+ - docker
+
+before_install:
+ - docker build -t ragavindia/docker -f Dockerfile.dev .
+
+script:
+ - docker run ragavindia/docker npm run test -- --coverage
